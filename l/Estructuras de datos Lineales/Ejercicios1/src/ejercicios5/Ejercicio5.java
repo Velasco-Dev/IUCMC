@@ -42,7 +42,7 @@ public class Ejercicio5 {
         
         int sumatoria = calcularSumaCuadradosPares(valores);
             
-        System.out.print("El resultado de la suma de pares es: "+ sumatoria);
+        System.out.print("La suma de las potencias de los numeros pares es: "+ sumatoria);
             
         scanner.close();                    
     }
