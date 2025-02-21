@@ -4,6 +4,7 @@
  */
 package ejercicios5;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -18,17 +19,53 @@ public class Ejercicio5 {
     public static void main(String[] args) {
         // TODO code application logic here
 
-        int b, h, area;
+        int tope, i, valor;
+        boolean par;
 
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Ingresa el valor de la base: ");
-        b = scanner.nextInt();
+        System.out.print("Ingresa el tamaño del arreglo de numeros: ");
+        tope = scanner.nextInt();
 
-        System.out.print("Ingresa el valor de la altura: ");
-        h = scanner.nextInt();
+        ArrayList<Integer> valores = new ArrayList<>();
 
-        area = (b * h);
-        System.out.println("El area es: " + area);
-        scanner.close();
+        for(i=1; i<=tope; i++){
+            System.out.print("Ingresa el "+ i +"° valor: ");
+            valor = scanner.nextInt();
+
+            par = esPar(valor);
+            
+            if(par){
+                valores.add(valor);
+            }            
+            
+        }
+        
+        int sumatoria = calcularSumaCuadradosPares(valores);
+            
+        System.out.print("El resultado de la suma de pares es: "+ sumatoria);
+            
+        scanner.close();                    
+    }
+
+    private static boolean esPar(int valor) {
+       
+        if (valor % 2 == 0) {
+            return true;
+        }
+        
+        return false;
+    }
+
+    private static int calcularSumaCuadradosPares(ArrayList<Integer> numeros) {
+
+        int suma = 0;
+        double potencia;
+
+        for (int i : numeros) {
+            potencia = Math.pow(i, 2);
+            suma += potencia;
+        }
+
+        return suma;
     }
 }
