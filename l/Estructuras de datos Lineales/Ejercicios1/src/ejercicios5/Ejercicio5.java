@@ -29,9 +29,12 @@ public class Ejercicio5 {
         ArrayList<Integer> valores = new ArrayList<>();
 
         for(i=1; i<=tope; i++){
+            
             System.out.print("Ingresa el "+ i +"° valor: ");
             valor = scanner.nextInt();
-
+            
+            scanner.close();  
+            
             par = esPar(valor);
             
             if(par){
@@ -42,9 +45,7 @@ public class Ejercicio5 {
         
         int sumatoria = calcularSumaCuadradosPares(valores);
             
-        System.out.print("La suma de las potencias de los numeros pares es: "+ sumatoria);
-            
-        scanner.close();                    
+        System.out.print("La suma de las potencias de los numeros pares es: "+ sumatoria);               
     }
 
     private static boolean esPar(int valor) {
