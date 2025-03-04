@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxGraphModel dx="1906" dy="859" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+    
+    <!-- Administrador -->
+    <mxCell id="admin_start" value="Inicio" style="ellipse;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="100" y="50" width="80" height="40" as="geometry" />
+    </mxCell>
+    
+    <mxCell id="admin_decision" value="¿Gestionar usuarios?" style="rhombus;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="100" y="150" width="100" height="50" as="geometry" />
+    </mxCell>
+    
+    <mxCell id="admin_gestionar" value="Agregar/Editar usuarios" style="rounded=1;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="50" y="250" width="150" height="50" as="geometry" />
+    </mxCell>
+    
+    <mxCell id="admin_gestionar_inv" value="Gestionar Inventario" style="rounded=1;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="250" y="250" width="150" height="50" as="geometry" />
+    </mxCell>
+    
+    <mxCell id="admin_reportes" value="Generar reportes" style="rounded=1;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="150" y="300" width="150" height="50" as="geometry" />
+    </mxCell>
+    
+    <mxCell id="admin_fin" value="Fin" style="ellipse;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="150" y="400" width="80" height="40" as="geometry" />
+    </mxCell>
+    
+    <!-- Microempresario -->
+    <mxCell id="emp_start" value="Inicio" style="ellipse;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="400" y="50" width="80" height="40" as="geometry" />
+    </mxCell>
+    
+    <mxCell id="emp_decision" value="¿Actualizar inventario?" style="rhombus;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="400" y="150" width="120" height="60" as="geometry" />
+    </mxCell>
+    
+    <mxCell id="emp_actualizar" value="Agregar/Eliminar productos" style="rounded=1;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="380" y="250" width="160" height="50" as="geometry" />
+    </mxCell>
+    
+    <mxCell id="emp_recibir_alertas" value="Recibir alertas de stock" style="rounded=1;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="380" y="310" width="160" height="50" as="geometry" />
+    </mxCell>
+    
+    <mxCell id="emp_fin" value="Fin" style="ellipse;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="420" y="400" width="80" height="40" as="geometry" />
+    </mxCell>
+    
+    <!-- Vendedor -->
+    <mxCell id="ven_start" value="Inicio" style="ellipse;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="700" y="50" width="80" height="40" as="geometry" />
+    </mxCell>
+    
+    <mxCell id="ven_decision" value="¿Registrar venta?" style="rhombus;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="700" y="150" width="100" height="50" as="geometry" />
+    </mxCell>
+    
+    <mxCell id="ven_registrar" value="Registrar producto vendido" style="rounded=1;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="680" y="250" width="140" height="50" as="geometry" />
+    </mxCell>
+    
+    <mxCell id="ven_actualizar_stock" value="Actualizar stock" style="rounded=1;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="680" y="310" width="140" height="50" as="geometry" />
+    </mxCell>
+    
+    <mxCell id="ven_generar_comprobante" value="Generar comprobante" style="rounded=1;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="680" y="370" width="140" height="50" as="geometry" />
+    </mxCell>
+    
+    <mxCell id="ven_fin" value="Fin" style="ellipse;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="720" y="450" width="80" height="40" as="geometry" />
+    </mxCell>
+  </root>
+</mxGraphModel>
