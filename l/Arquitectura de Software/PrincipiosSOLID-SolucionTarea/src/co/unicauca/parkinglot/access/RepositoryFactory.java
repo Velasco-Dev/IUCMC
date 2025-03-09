@@ -12,7 +12,8 @@ public class RepositoryFactory {
 
     private static RepositoryFactory instance;
 
-    private RepositoryFactory() {}
+    private RepositoryFactory() {
+    }
 
     public static RepositoryFactory getInstance() {
         if (instance == null) {

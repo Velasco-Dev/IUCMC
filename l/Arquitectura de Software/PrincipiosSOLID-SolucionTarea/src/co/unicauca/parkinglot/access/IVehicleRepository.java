@@ -13,5 +13,6 @@ import java.util.List;
 
 public interface IVehicleRepository {
     void save(Vehicle vehicle);
+
     List<Vehicle> list();
 }

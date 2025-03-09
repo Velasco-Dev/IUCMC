@@ -6,10 +6,10 @@ package co.unicauca.parkinglot.domain;
  * @autor Tagpa
  */
 public class Vehicle {
-    
+
     private String placa;
     private TypeEnum tipo;
-    
+
     public Vehicle(String placa, TypeEnum tipo) {
         this.placa = placa;
         this.tipo = tipo;
