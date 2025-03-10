@@ -5,6 +5,7 @@ import co.unicauca.parkinglot.domain.Vehicle;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Servicio de parqueadero
@@ -19,23 +20,26 @@ public class Service {
     }
 
     public long calculateParkingCost(Vehicle veh, LocalDateTime input, LocalDateTime output) {
-        // Implementación básica para calcular el costo del parqueo
         Duration duration = Duration.between(input, output);
         long hours = duration.toHours();
         long minutes = duration.toMinutes() % 60;
-        long cost = 0;
-
+        double cost = 0;
+    
         switch (veh.getType()) {
             case MOTO:
-                cost = hours * 1000;
-                if (minutes > 0) {
-                    cost += 1000; // Cobrar una hora adicional si hay minutos adicionales
+                cost = 1000; // Valor fijo primera hora
+                if (hours > 1 || (hours == 1 && minutes > 0)) {
+                    // Después de la primera hora, $500 por hora usando regla de tres
+                    double additionalHours = (hours - 1) + (minutes / 60.0);
+                    cost += additionalHours * 500;
                 }
                 break;
             case CAR:
-                cost = hours * 2000;
-                if (minutes > 0) {
-                    cost += 2000; // Cobrar una hora adicional si hay minutos adicionales
+                cost = 2000; // Valor fijo primera hora
+                if (hours > 1 || (hours == 1 && minutes > 0)) {
+                    // Después de la primera hora, $1000 por hora usando regla de tres
+                    double additionalHours = (hours - 1) + (minutes / 60.0);
+                    cost += additionalHours * 1000;
                 }
                 break;
             case TRUCK:
@@ -48,15 +52,22 @@ public class Service {
                     long remainingHours = hours % 24;
                     cost = days * 15000;
                     if (remainingHours > 0) {
-                        cost += 15000; // Cobrar un día adicional si hay horas adicionales
+                        cost += (remainingHours * 15000.0) / 24.0;
                     }
+                }
+                // Lógica del sorteo
+                Random rand = new Random();
+                int randomNum = rand.nextInt(1000) + 1;
+                if (randomNum == 1) {
+                    cost = 0;
                 }
                 break;
             default:
                 throw new UnsupportedOperationException("Tipo de vehículo no soportado: " + veh.getType());
         }
-
-        return cost;
+    
+        // Redondear a la centena más cercana por encima
+        return (long) (Math.ceil(cost / 100.0) * 100);
     }
 
     public List<Vehicle> listVehicles() {

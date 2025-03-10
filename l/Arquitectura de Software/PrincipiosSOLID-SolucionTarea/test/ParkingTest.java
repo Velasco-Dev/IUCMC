@@ -27,7 +27,7 @@ public class ParkingTest {
         IVehicleRepository repo = RepositoryFactory.getInstance().getRepository("default");
 
         Service service = new Service(repo);
-        long expResult = 2000L; // 1 hora y media = 2 horas * 1000
+        long expResult = 1300L; // 1 hora y media = 1000 + 250 = 1250 = 1300 (redondeo)
         long result = service.calculateParkingCost(veh, input, output);
         assertEquals(expResult, result);
 
@@ -40,7 +40,7 @@ public class ParkingTest {
         System.out.println("Moto 3 horas y 45 minutos");
         input = LocalDateTime.of(2021, Month.FEBRUARY, 22, 8, 0);
         output = LocalDateTime.of(2021, Month.FEBRUARY, 22, 11, 45);
-        expResult = 4000L; // 3 horas y 45 minutos = 4 horas * 1000
+        expResult = 2400L; // 3 horas y 45 minutos = 1000 + 2*500 + 375 = 2375 = 2400 (redondeo)
         result = service.calculateParkingCost(veh, input, output);
         assertEquals(expResult, result);
     }
@@ -54,7 +54,7 @@ public class ParkingTest {
         IVehicleRepository repo = RepositoryFactory.getInstance().getRepository("default");
 
         Service service = new Service(repo);
-        long expResult = 6000L; // 2 horas y 10 minutos = 3 horas * 2000
+        long expResult = 3200L; // 2 horas y 10 minutos = 2000 + 1000 + 166 = 3166 = 3200 (redondeo)
         long result = service.calculateParkingCost(veh, input, output);
         assertEquals(expResult, result);
 
@@ -67,7 +67,7 @@ public class ParkingTest {
         System.out.println("Carro 1 horas y 30 minutos");
         input = LocalDateTime.of(2021, Month.FEBRUARY, 22, 8, 0);
         output = LocalDateTime.of(2021, Month.FEBRUARY, 22, 9, 30);
-        expResult = 4000L; // 1 hora y 30 minutos = 2 horas * 2000
+        expResult = 2500L; // 1 hora y 30 minutos = 2000 + 500 = 2500
         result = service.calculateParkingCost(veh, input, output);
         assertEquals(expResult, result);
     }
@@ -84,17 +84,17 @@ public class ParkingTest {
         long result = service.calculateParkingCost(veh, input, output);
         assertEquals(expResult, result);
 
-        System.out.println("Camión mas de 12 horas");
+        System.out.println("Camion mas de 12 horas");
         input = LocalDateTime.of(2021, Month.FEBRUARY, 22, 8, 0);
         output = LocalDateTime.of(2021, Month.FEBRUARY, 22, 22, 0);
         expResult = 15000L; // Más de 12 horas = 15000
         result = service.calculateParkingCost(veh, input, output);
         assertEquals(expResult, result);
 
-        System.out.println("Camión 3 dias y una hora");
+        System.out.println("Camion 3 dias y una hora");
         input = LocalDateTime.of(2021, Month.FEBRUARY, 22, 8, 0);
         output = LocalDateTime.of(2021, Month.FEBRUARY, 25, 9, 15);
-        expResult = 60000L; // 3 días y una hora = 4 días * 15000
+        expResult = 45700L; // 3 días y una hora = 3*15000 + 625 = 45625 = 45700 (redondeo)
         result = service.calculateParkingCost(veh, input, output);
         assertEquals(expResult, result);
     }
