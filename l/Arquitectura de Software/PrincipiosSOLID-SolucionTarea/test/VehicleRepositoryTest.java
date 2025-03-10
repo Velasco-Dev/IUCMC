@@ -78,6 +78,7 @@ public class VehicleRepositoryTest {
                     tipo = TypeEnum.TRUCK;
                 } else {
                     System.out.println("Opcion no valida.");
+                    scanner.close();
                     return;
                 }
 
@@ -88,6 +89,8 @@ public class VehicleRepositoryTest {
                 Vehicle testVehicle = new Vehicle(placa, tipo);
                 boolean saveResult = repo.save(testVehicle);
                 assertTrue(saveResult, "Should save vehicle successfully");
+
+                scanner.close();
 
                 break;
                 case "2":
@@ -107,6 +110,7 @@ public class VehicleRepositoryTest {
                 break;
             case "3":
                 System.out.println("Saliendo...");
+                scanner.close();
                 return;
             default:
                 System.out.println("Opcion no valida.");
