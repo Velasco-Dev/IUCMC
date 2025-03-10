@@ -24,8 +24,20 @@ public class RepositoryFactory {
 
     public IVehicleRepository getRepository(String type) {
         if ("default".equals(type)) {
+
             return new DefaultVehicleRepository();
+
+        } else if ("def".equals(type)) {
+
+            VehicleRepository repository = new VehicleRepository();
+            return repository;
+
         }
         return null;
     }
+
+    // public IVehicleRepository getRepository(String type) {
+    // VehicleRepository repository = new VehicleRepository();
+    // return repository;
+    // }
 }
