@@ -19,16 +19,16 @@ public class Vehicle {
         return tipo;
     }
 
-    public String getPlaca() {
-        return placa;
-    }
-
     public void setType(TypeEnum tipo) {
         this.tipo = tipo;
     }
 
     public void setPlaca(String placa) {
         this.placa = placa;
+    }
+
+    public String getPlaca() {
+        return placa;
     }
 
     @Override

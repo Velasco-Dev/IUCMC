@@ -42,7 +42,7 @@
         </javac>
     </target>
 
-        <!-- Run ClientMain -->
+    <!-- Run ClientMain -->
     <target name="run" depends="compile">
         <java classname="co.unicauca.parkinglot.presentation.ClientMain" fork="true">
             <classpath>
@@ -54,13 +54,41 @@
         </java>
     </target>
 
+    <path id="classpath">
+        <pathelement path="${classes.dir}"/>
+        <fileset dir="lib">
+            <include name="**/*.jar"/>
+        </fileset>
+    </path>
+
+    <!-- Compile source files 
+    <target name="compile" depends="init">
+        <javac srcdir="${src.dir}" destdir="${classes.dir}" includeantruntime="false">
+            <classpath refid="classpath"/>
+        </javac>
+    </target>-->
+
+    <!-- Compile test files 
+    <target name="compile-test" depends="compile">
+        <javac srcdir="${test.dir}" destdir="${test.classes.dir}" includeantruntime="false">
+            <classpath>
+                <path refid="classpath"/>
+                <pathelement path="${test.classes.dir}"/>
+            </classpath>
+        </javac>
+    </target>-->
+
     <!-- Run tests -->
     <target name="test" depends="compile-test">
         <java classname="org.junit.platform.console.ConsoleLauncher" fork="true">
             <classpath>
+                <path refid="classpath"/>
                 <pathelement path="${test.classes.dir}"/>
                 <pathelement path="${classes.dir}"/>
                 <pathelement path="${junit.jar}"/>
+                <fileset dir="lib">
+                    <include name="*.jar"/>
+                </fileset>
             </classpath>
             <arg value="--scan-classpath"/>
         </java>

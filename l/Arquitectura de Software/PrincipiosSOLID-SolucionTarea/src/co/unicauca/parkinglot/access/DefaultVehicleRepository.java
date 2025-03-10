@@ -8,8 +8,8 @@ public class DefaultVehicleRepository implements IVehicleRepository {
     private List<Vehicle> vehicles = new ArrayList<>();
 
     @Override
-    public void save(Vehicle vehicle) {
-        vehicles.add(vehicle);
+    public boolean save(Vehicle vehicle) {
+        return vehicles.add(vehicle);
     }
 
     @Override
