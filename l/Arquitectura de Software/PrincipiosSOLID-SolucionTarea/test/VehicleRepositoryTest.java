@@ -96,17 +96,25 @@ public class VehicleRepositoryTest {
                 case "2":
                 // Try to retrieve vehicles
                 List<Vehicle> vehicles = repo.list();
+
                 if (vehicles.isEmpty()) {
+
                     System.out.println("No hay vehiculos registrados.");
+
                 } else {
+
                     System.out.println("\nVehiculos registrados:");
                     System.out.println("------------------------------------------");
+
                     for (Vehicle vehicle : vehicles) {
                         System.out.println("Placa: " + vehicle.getPlaca() + 
                                          " - Tipo: " + vehicle.getType());
                     }
+                    
                     System.out.println("------------------------------------------");
+
                 }
+
                 break;
             case "3":
                 System.out.println("Saliendo...");
