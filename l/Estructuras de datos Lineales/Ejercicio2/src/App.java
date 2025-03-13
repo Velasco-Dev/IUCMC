@@ -32,6 +32,8 @@ public class App {
                         System.out.println("==============================================\n"
                                 + "= Calduladora de promedio, moda y desviacion =\n"
                                 + "==============================================");
+
+                        
                         System.out.print("Ingrese el numero de alumnos: ");
                         int n = scanner.nextInt();
                         int[] edades = new int[n];
