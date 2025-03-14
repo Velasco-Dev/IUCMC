@@ -5,11 +5,11 @@ import java.util.Scanner;
 
 public class App {
 
-    private final static String NOMBRE_FICHERO = "src\\patidos.txt";
+    private final static String NOMBRE_FICHERO = "src\\partidos.txt";
 
     public static void main(String[] args) throws Exception {
 
-        System.out.println("Inicio el programa");
+        System.out.println("==== Inicio el programa ====");
 
         ArrayList<PartidoFutbol> partidos = new ArrayList<>();
 
@@ -38,10 +38,16 @@ public class App {
             System.out.println("No se ha podido encontar el archivo.");
         }
 
-        System.out.println("Cantidad de partidos: " + partidos.size());
+        System.out.println("= Cantidad de partidos: " + partidos.size() + " =\n" +
+                "============================");
+        System.out.println("======== Resultados ========\n" +
+                "============================");
+        System.out.println("== Local = || = Visitante ==\n" +
+                "============================");
 
         for (PartidoFutbol partidoFutbol : partidos) {
-            System.out.println(partidoFutbol);
+            System.out.println("| "+partidoFutbol.getEquipoLocal() + ": " + partidoFutbol.getGolLocal() +
+                    " || " + partidoFutbol.getEquipoVisitante() +": "+ partidoFutbol.getGolVisitante()+" |");
         }
 
     }
