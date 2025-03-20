@@ -2,13 +2,15 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-import cuarto.cuartoPunto;
 import interfaces.Command;
+
 import primero.primerPunto;
-import quinto.quintoPunto;
 import segundo.segundoPunto;
-import sexto.sextoPunto;
 import tercero.tercerPunto;
+import cuarto.cuartoPunto;
+import quinto.quintoPunto;
+import sexto.sextoPunto;
+import septimo.septimoPunto;
 
 public class Ejercicio {
 
@@ -26,7 +28,7 @@ public class Ejercicio {
         menuOptions.put(4, () -> cuartoPunto.numeroMenorMayor());
         menuOptions.put(5, () -> quintoPunto.invertirArreglo());
         menuOptions.put(6, () -> sextoPunto.arrayListNombres());
-        // menuOptions.put(7, () -> septimoPunto.arrayListHastaCero());
+        menuOptions.put(7, () -> septimoPunto.arrayListHastaCero());
         // menuOptions.put(8, () -> octavoPunto.arrayListPares());
         // menuOptions.put(9, () -> novenoPunto.arrayListObjetos());
         // menuOptions.put(10, () -> decimoPunto.ejercicioPartidos());
