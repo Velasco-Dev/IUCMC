@@ -71,6 +71,7 @@ public class Ejercicio {
         System.out.println("=================== Bienvenido a ===================");
         System.out.println("============= Ejercicios sobre Arreglos ============");
         System.out.println("============ Unidimensionales y ArrayList ==========");
+        System.out.println("============== Por: Ruben D. Velasco B. ============");
         System.out.println("1. Punto 1");
         System.out.println("2. Punto 2");
         System.out.println("3. Punto 3");
