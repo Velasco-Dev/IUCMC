@@ -55,6 +55,7 @@ public class octavoPunto {
                 //Se remueve del ArrayList el elemento si es que existe y se imprime el ArrayList resultante
                 pares.remove(Integer.valueOf(numeroEliminar));
                 System.out.println("c.1) Imprima de nuevo el arreglo para verificar que el valor se retiró: " + pares);
+                scanner.close();
                 return;
             }
 
