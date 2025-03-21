@@ -2,7 +2,7 @@ package segundo;
 
 public class segundoPunto {
 
-    public static void cienNumeroPares(){
+    public static void cienNumerosPares(){
 
         System.out.println("2. Inicializar por programa un arreglo con los 100 primeros números pares e imprimirlo:");
 

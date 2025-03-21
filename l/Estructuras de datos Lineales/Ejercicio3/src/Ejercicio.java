@@ -11,6 +11,9 @@ import cuarto.cuartoPunto;
 import quinto.quintoPunto;
 import sexto.sextoPunto;
 import septimo.septimoPunto;
+import octavo.octavoPunto;
+import noveno.novenoPunto;
+import decimo.decimoPunto;
 
 public class Ejercicio {
 
@@ -23,15 +26,15 @@ public class Ejercicio {
     //agregación de opciones en el menú
     static {
         menuOptions.put(1, () -> primerPunto.primosList());
-        menuOptions.put(2, () -> segundoPunto.cienNumeroPares());
+        menuOptions.put(2, () -> segundoPunto.cienNumerosPares());
         menuOptions.put(3, () -> tercerPunto.factorial());
         menuOptions.put(4, () -> cuartoPunto.numeroMenorMayor());
         menuOptions.put(5, () -> quintoPunto.invertirArreglo());
         menuOptions.put(6, () -> sextoPunto.arrayListNombres());
         menuOptions.put(7, () -> septimoPunto.arrayListHastaCero());
-        // menuOptions.put(8, () -> octavoPunto.arrayListPares());
-        // menuOptions.put(9, () -> novenoPunto.arrayListObjetos());
-        // menuOptions.put(10, () -> decimoPunto.ejercicioPartidos());
+        menuOptions.put(8, () -> octavoPunto.arrayListPares());
+        menuOptions.put(9, () -> novenoPunto.arrayListObjetos());
+        menuOptions.put(10, () -> decimoPunto.ejercicioPartidos());
     }
 
     //deifinición del método principal
