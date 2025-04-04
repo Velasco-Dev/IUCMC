@@ -1,6 +1,5 @@
 package ejercicios;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 import mediana.Mediana;
@@ -67,17 +66,6 @@ public class Ejercicios {
 
     private static void opcionUno() {
 
-        int[] primos = { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29 };
-
-        System.out.print("Los primeros 10 números primos son: ");
-
-        for (int primo : primos) {
-            if (primo != 29) {
-                System.out.print(primo + ", ");
-            } else {
-                System.out.print(primo + ".");
-            }
-        }
     }
 
     private static void opcionDos() {
