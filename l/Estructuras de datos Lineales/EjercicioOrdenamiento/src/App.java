@@ -1,20 +1,41 @@
-import java.util.Arrays;
+import java.util.Scanner;
+import static principal.bubbleSortEstatico.primero;
+import static principal.bubbleSortRandom.segundo;
+import static principal.shakerSortEstatico.tercero;
+
 
 public class App {
     public static void main(String[] args) throws Exception {
 
-        ///Hacer un programa con 100 elementos aleatorios y ordenarlo con bubblesort
-        /// Probar Shaker sort del seudocodigo de las dispositivas
-        
-        int [] elementos = {8, 5, 2, 3, 1};
-        
-        //Imprimir arreglo original
-        System.out.println("El arreglo original es: "+Arrays.toString(elementos));
+        int opcion;
+        //Menu de ejecución
+        try (Scanner scanner = new Scanner(System.in)) {
+            //Menu de ejecución
+            System.out.println("""
+                                       1. Ejecutar Bubble Sort estatico.
+                                       2. Ejecutar Bubble Sort radom.
+                                       3. Ejecutar Shaker Sort estatico.
+                                       4. Salir.""");
+            //Pedir opción al usuario
+            System.out.print("Elija una opción: ");
+            opcion = scanner.nextInt();
+        }
 
-        bubbleSort.Burbuja.ordenamientoBurbuja(elementos);
-
-        //Imprimir arreglo ordenado
-        System.out.println("El arreglo ordenado es: "+Arrays.toString(elementos));
-
+        switch (opcion) {
+            case 1 -> {
+                System.out.println("Ejecutando Bubble Sort estatico...");
+                primero();
+            }
+            case 2 -> {
+                System.out.println("Ejecutando Bubble Sort radom...");   
+                segundo();
+            }
+            case 3 -> {
+                System.out.println("Ejecutando Shaker Sort estatico...");
+                tercero();
+            }
+            case 4 -> System.out.println("Saliendo...");
+            default -> System.out.println("Opción no válida.");
+        }
     }
 }

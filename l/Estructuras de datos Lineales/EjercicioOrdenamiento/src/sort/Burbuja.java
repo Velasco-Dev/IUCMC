@@ -1,4 +1,4 @@
-package bubbleSort;
+package sort;
 
 public class Burbuja {
 
@@ -17,10 +17,6 @@ public class Burbuja {
                 }
             }
         }
-
-        // for (int i = 0; i < elementos.length; i++) {
-        //     System.out.println("El arreglo ordenado es: "+elementos[i]);
-        // }
     }
     
 }
