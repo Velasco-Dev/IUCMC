@@ -8,7 +8,7 @@ public class Burbuja {
 
         while (orden) {
             orden = false;
-            for (int i = 0; i < elementos.length-1; i++) {
+            for (int i = 0; i < elementos.length - 1; i++) {
                 if (elementos[i]> elementos[i+1]) {
                     int aux = elementos[i];
                     elementos[i] = elementos[i+1];

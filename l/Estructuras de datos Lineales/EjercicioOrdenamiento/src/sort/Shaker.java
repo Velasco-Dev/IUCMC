@@ -1,8 +1,9 @@
 package sort;
 
+//Shaker Cocktail Bidireccional Sort
 public class Shaker {
 
-    public static void ordenamientoShaker(int[] elementos) {
+    public static void ordenamientoShaker(int [] elementos) {
         
         int inicio = 0;
         int fin = elementos.length - 1;
