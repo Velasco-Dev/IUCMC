@@ -25,7 +25,7 @@ public class Recursividad {
         menuOptions.put(12, () -> ejercicios.PuntoDoce.doce());
         menuOptions.put(13, () -> ejercicios.PuntoTrece.trece());
         menuOptions.put(14, () -> ejercicios.PuntoCatorce.catorce());
-        menuOptions.put(15, () -> System.exit(0));
+        menuOptions.put(15, () -> Salir());
     }
 
     // deifinición del método principal
@@ -60,6 +60,12 @@ public class Recursividad {
 
             }
         }
+    }
+
+    private static void Salir() {
+        System.out.println("Gracias por usar el programa. ¡Hasta luego!");
+        // Salir del programa
+        System.exit(0);
     }
 
     // Definición del método que contiene el menú

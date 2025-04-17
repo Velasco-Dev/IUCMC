@@ -13,6 +13,7 @@ public class PuntoUno {
             numero = scanner.nextInt();
             // Llamada al método calcularFactorial
             int resultado = calcularFactorial(numero);
+            // Mostrar el resultado
             System.out.println("El factorial de " + numero + " es: " + resultado);
         } 
     }

@@ -11,8 +11,9 @@ public class PuntoDos {
             System.out.print("Ingrese un numero entero: ");
 
             int numero = scanner.nextInt();
+            // Llamada al método invertirNumero
             int resultado = invertirNumero(numero);
-
+            // Mostrar el resultado
             System.out.println("El numero invertido es: " + resultado);
         }
     }

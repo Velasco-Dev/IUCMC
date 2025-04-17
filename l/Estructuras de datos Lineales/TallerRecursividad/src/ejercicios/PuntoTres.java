@@ -13,6 +13,7 @@ public class PuntoTres {
 
             if (numero > 0) {
                 double resultado = calcularSumatoria(numero);
+                // Mostrar el resultado
                 System.out.print("La sumatoria es: " + resultado);
             } else {
                 System.out.println("Por favor, ingrese un número entero positivo.");
