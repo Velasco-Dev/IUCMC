@@ -13,7 +13,7 @@ public class seleccionSortEstatico {
         //Imprimir arreglo original
         System.out.println("El arreglo original es: "+Arrays.toString(elementos));
     
-        sort.Seleccion.ordenamientoSeleccion(elementos);
+        ordenamiento.Seleccion.ordenamientoSeleccion(elementos);
     
         //Imprimir arreglo ordenado
         System.out.println("El arreglo ordenado es: "+Arrays.toString(elementos));

@@ -3,6 +3,8 @@ import static principal.bubbleSortEstatico.primero;
 import static principal.bubbleSortRandom.segundo;
 import static principal.dvSortEstatico.septimo;
 import static principal.insercionSortEstatico.quinto;
+import static principal.mergeSortEstatico.octavo;
+import static principal.quickSortEstatico.noveno;
 import static principal.seleccionSortEstatico.cuarto;
 import static principal.shakerSortEstatico.tercero;
 import static principal.shellSortEstatico.sexto;
@@ -19,11 +21,12 @@ public class App {
                     2. Ejecutar Bubble Sort radom.
                     3. Ejecutar Shaker Sort estatico.
                     4. Ejecutar Seleccion Sort estatico.
-                    5. Ejecutar Insercion Sort estatico.
-                    //no sirve
+                    5. (no sirve) Ejecutar Insercion Sort estatico. 
                     6. Ejecutar Shell Sort estatico.
-                    7. Ejecutar Divide y Venceras Sort random.
-                    8. Salir.""");
+                    7. Ejecutar Divide y Venceras Sort estatico.
+                    8. Ejecutar Merge Sort estatico.
+                    9. Ejecutar Quick Sort estatico.
+                    10. Salir.""");
             // Pedir opción al usuario
             System.out.print("Elija una opción: ");
             opcion = scanner.nextInt();
@@ -63,8 +66,16 @@ public class App {
                 System.out.println("Ejecutando Divide y Venceras Sort estatico...");
                 septimo();
             }
+            case 8 -> {
+                System.out.println("Ejecutando Merge Sort estatico...");
+                octavo();
+            }
+            case 9 -> {
+                System.out.println("Ejecutando Quick Sort estatico...");
+                noveno();
+            }
             //Hacer merge sort estatico
-            case 8 -> System.out.println("Saliendo...");
+            case 10 -> System.out.println("Saliendo...");
             default -> System.out.println("Opción no válida.");
         }
 

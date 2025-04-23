@@ -12,7 +12,7 @@ public class insercionSortEstatico {
         // Imprimir arreglo original
         System.out.println("El arreglo original es: " + Arrays.toString(elementos));
 
-        sort.Insercion.ordenamientoInsercion(elementos);
+        ordenamiento.Insercion.ordenamientoInsercion(elementos);
 
         // Imprimir arreglo ordenado
         System.out.println("El arreglo ordenado es: " + Arrays.toString(elementos));

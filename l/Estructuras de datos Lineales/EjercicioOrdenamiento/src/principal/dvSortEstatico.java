@@ -12,7 +12,7 @@ public class dvSortEstatico {
         System.out.println("El arreglo original es: " + Arrays.toString(elementos));
         
         // Imprimir suma arreglo
-        System.out.println("El resultado de la suma es: " + sort.DivideVenceras.sumaDV(elementos, 0, elementos.length - 1));
+        System.out.println("El resultado de la suma es: " + ordenamiento.DivideVenceras.sumaDV(elementos, 0, elementos.length - 1));
     }
     
 }

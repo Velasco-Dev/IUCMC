@@ -14,7 +14,7 @@ public class shakerSortEstatico {
         //Imprimir arreglo original
         System.out.println("El arreglo original es: "+Arrays.toString(elementos));
     
-        sort.Burbuja.ordenamientoBurbuja(elementos);
+        ordenamiento.Burbuja.ordenamientoBurbuja(elementos);
     
         //Imprimir arreglo ordenado
         System.out.println("El arreglo ordenado es: "+Arrays.toString(elementos));

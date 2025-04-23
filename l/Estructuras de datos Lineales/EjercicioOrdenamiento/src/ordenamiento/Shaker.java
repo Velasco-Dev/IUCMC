@@ -1,4 +1,4 @@
-package sort;
+package ordenamiento;
 
 //Shaker Cocktail Bidireccional Sort
 public class Shaker {

@@ -1,4 +1,4 @@
-package sort;
+package ordenamiento;
 
 public class Burbuja {
 
