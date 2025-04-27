@@ -1,0 +1,311 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class MercAppSimulacion {
+    private static List<Usuario> usuarios = new ArrayList<>();
+    private static List<Producto> inventario = new ArrayList<>();
+    private static List<Venta> ventas = new ArrayList<>();
+    private static Usuario usuarioLogueado;
+    private static Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        // Datos estáticos iniciales
+        inicializarDatos();
+        
+        while(true) {
+            System.out.println("\n=== MENÚ PRINCIPAL ===");
+            System.out.println("1. Iniciar sesión");
+            System.out.println("2. Registrarse");
+            System.out.println("3. Salir");
+            System.out.print("Seleccione opción: ");
+            
+            int opcion = scanner.nextInt();
+            scanner.nextLine();  // Limpiar buffer
+            
+            switch(opcion) {
+                case 1:
+                    iniciarSesion();
+                    break;
+                case 2:
+                    registrarUsuario();
+                    break;
+                case 3:
+                    System.exit(0);
+                default:
+                    System.out.println("Opción inválida");
+            }
+        }
+    }
+
+    private static void inicializarDatos() {
+        // Usuarios pre-registrados
+        usuarios.add(new Usuario("admin1", "admin123", "Administrador"));
+        usuarios.add(new Usuario("micro1", "micro123", "Microempresario"));
+        usuarios.add(new Usuario("vend1", "vend123", "Vendedor"));
+        
+        // Productos iniciales
+        inventario.add(new Producto("P001", "Laptop", 10, 1500.0));
+        inventario.add(new Producto("P002", "Mouse", 50, 25.0));
+    }
+
+    private static void iniciarSesion() {
+        System.out.print("\nUsuario: ");
+        String usuario = scanner.nextLine();
+        System.out.print("Contraseña: ");
+        String contrasena = scanner.nextLine();
+        
+        for(Usuario u : usuarios) {
+            if(u.getUsername().equals(usuario) && u.getPassword().equals(contrasena)) {
+                usuarioLogueado = u;
+                menuRol();
+                return;
+            }
+        }
+        System.out.println("Credenciales incorrectas!");
+    }
+
+    private static void registrarUsuario() {
+        System.out.println("\n=== REGISTRO ===");
+        System.out.print("Usuario: ");
+        String user = scanner.nextLine();
+        System.out.print("Contraseña: ");
+        String pass = scanner.nextLine();
+        System.out.print("Rol (Microempresario/Vendedor): ");
+        String rol = scanner.nextLine();
+        
+        usuarios.add(new Usuario(user, pass, rol));
+        System.out.println("Usuario registrado exitosamente!");
+    }
+
+    private static void menuRol() {
+        switch(usuarioLogueado.getRol()) {
+            case "Microempresario":
+                menuMicroempresario();
+                break;
+            case "Vendedor":
+                menuVendedor();
+                break;
+            default:
+                System.out.println("Rol no reconocido");
+        }
+    }
+
+    private static void menuMicroempresario() {
+        while(true) {
+            System.out.println("\n=== MICROEMPRESARIO ===");
+            System.out.println("1. Agregar producto");
+            System.out.println("2. Actualizar stock");
+            System.out.println("3. Ver inventario");
+            System.out.println("4. Salir");
+            System.out.print("Seleccione opción: ");
+            
+            int opcion = scanner.nextInt();
+            scanner.nextLine();
+            
+            switch(opcion) {
+                case 1:
+                    agregarProducto();
+                    break;
+                case 2:
+                    actualizarStock();
+                    break;
+                case 3:
+                    mostrarInventario();
+                    break;
+                case 4:
+                    return;
+                default:
+                    System.out.println("Opción inválida");
+            }
+        }
+    }
+
+    private static void agregarProducto() {
+        System.out.print("ID Producto: ");
+        String id = scanner.nextLine();
+        System.out.print("Nombre: ");
+        String nombre = scanner.nextLine();
+        System.out.print("Cantidad inicial: ");
+        int cantidad = scanner.nextInt();
+        System.out.print("Precio: ");
+        double precio = scanner.nextDouble();
+        scanner.nextLine();
+        
+        inventario.add(new Producto(id, nombre, cantidad, precio));
+        System.out.println("Producto agregado!");
+    }
+
+    private static void actualizarStock() {
+        mostrarInventario();
+        System.out.print("ID Producto a actualizar: ");
+        String id = scanner.nextLine();
+        
+        for(Producto p : inventario) {
+            if(p.getId().equals(id)) {
+                System.out.print("Nueva cantidad: ");
+                p.setCantidad(scanner.nextInt());
+                scanner.nextLine();
+                System.out.println("Stock actualizado!");
+                return;
+            }
+        }
+        System.out.println("Producto no encontrado!");
+    }
+
+    private static void mostrarInventario() {
+        System.out.println("\n=== INVENTARIO ===");
+        for(Producto p : inventario) {
+            System.out.println(p);
+        }
+    }
+
+    private static void menuVendedor() {
+        while(true) {
+            System.out.println("\n=== VENDEDOR ===");
+            System.out.println("1. Nueva venta");
+            System.out.println("2. Ver ventas");
+            System.out.println("3. Salir");
+            System.out.print("Seleccione opción: ");
+            
+            int opcion = scanner.nextInt();
+            scanner.nextLine();
+            
+            switch(opcion) {
+                case 1:
+                    realizarVenta();
+                    break;
+                case 2:
+                    mostrarVentas();
+                    break;
+                case 3:
+                    return;
+                default:
+                    System.out.println("Opción inválida");
+            }
+        }
+    }
+
+    private static void realizarVenta() {
+        Venta venta = new Venta(new CalculoConIVA());
+        String continuar;
+        
+        do {
+            mostrarInventario();
+            System.out.print("ID Producto a vender: ");
+            String id = scanner.nextLine();
+            
+            for(Producto p : inventario) {
+                if(p.getId().equals(id)) {
+                    System.out.print("Cantidad: ");
+                    int cantidad = scanner.nextInt();
+                    scanner.nextLine();
+                    
+                    if(p.getCantidad() >= cantidad) {
+                        venta.agregarProducto(p, cantidad);
+                        p.setCantidad(p.getCantidad() - cantidad);
+                        System.out.println("Producto agregado a la venta!");
+                    } else {
+                        System.out.println("Stock insuficiente!");
+                    }
+                    break;
+                }
+            }
+            
+            System.out.print("¿Agregar otro producto? (s/n): ");
+            continuar = scanner.nextLine();
+        } while(continuar.equalsIgnoreCase("s"));
+        
+        ventas.add(venta);
+        System.out.println("Venta registrada! Total: $" + venta.calcularTotal());
+    }
+
+    private static void mostrarVentas() {
+        System.out.println("\n=== HISTORIAL DE VENTAS ===");
+        for(Venta v : ventas) {
+            System.out.println(v);
+        }
+    }
+}
+
+class Usuario {
+    private String username;
+    private String password;
+    private String rol;
+    
+    public Usuario(String username, String password, String rol) {
+        this.username = username;
+        this.password = password;
+        this.rol = rol;
+    }
+
+    // Getters
+    public String getUsername() { return username; }
+    public String getPassword() { return password; }
+    public String getRol() { return rol; }
+}
+
+class Producto {
+    private String id;
+    private String nombre;
+    private int cantidad;
+    private double precio;
+    
+    public Producto(String id, String nombre, int cantidad, double precio) {
+        this.id = id;
+        this.nombre = nombre;
+        this.cantidad = cantidad;
+        this.precio = precio;
+    }
+
+    // Getters y Setters
+    public String getId() { return id; }
+    public int getCantidad() { return cantidad; }
+    public void setCantidad(int cantidad) { this.cantidad = cantidad; }
+    
+    @Override
+    public String toString() {
+        return String.format("%s - %s | Stock: %d | Precio: $%.2f", 
+                id, nombre, cantidad, precio);
+    }
+}
+
+// Clases para el patrón Strategy (ya implementadas)
+interface CalculoTotalStrategy {
+    double calcularTotal(double subtotal);
+}
+
+class CalculoConIVA implements CalculoTotalStrategy {
+    @Override
+    public double calcularTotal(double subtotal) {
+        return subtotal * 1.19;
+    }
+}
+
+class Venta {
+    private List<Producto> productos = new ArrayList<>();
+    private List<Integer> cantidades = new ArrayList<>();
+    private CalculoTotalStrategy estrategia;
+    
+    public Venta(CalculoTotalStrategy estrategia) {
+        this.estrategia = estrategia;
+    }
+    
+    public void agregarProducto(Producto p, int cantidad) {
+        productos.add(p);
+        cantidades.add(cantidad);
+    }
+    
+    public double calcularTotal() {
+        double subtotal = 0;
+        for(int i = 0; i < productos.size(); i++) {
+            subtotal += productos.get(i).getPrecio() * cantidades.get(i);
+        }
+        return estrategia.calcularTotal(subtotal);
+    }
+    
+    @Override
+    public String toString() {
+        return String.format("Venta - Total: $%.2f", calcularTotal());
+    }
+}
