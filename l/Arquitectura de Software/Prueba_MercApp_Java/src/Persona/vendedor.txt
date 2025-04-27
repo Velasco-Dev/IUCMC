@@ -1,7 +1,7 @@
 package Persona;
 
 import Data.DataManager;
-import Inventario.Inventario;
+import static Inventario.Inventario.mostrarInventario;
 import Producto.Producto;
 import Utils.Input;
 import Venta.CalculoConIVA;
@@ -17,17 +17,15 @@ public class Vendedor {
 
     public static void menuVendedor() {
         while (true) {
-
-            System.out.println("\n===================== VENDEDOR " + InicioSesion.usuarioLogueado.getUsername()
-                    + " ====================");
             System.out.print("""
+                    \n======================== VENDEDOR =======================
                     1. Nueva venta
                     2. Ver ventas
                     3. Salir
-                    """);
+                    =========================================================
+                        """);
 
             int opcion = Input.getInt("Seleccione opción: ");
-            Input.scanner.nextLine(); // Limpiar el buffer
 
             switch (opcion) {
                 case 1 -> realizarVenta();
@@ -41,26 +39,25 @@ public class Vendedor {
     }
 
     public static void realizarVenta() {
+
         Venta venta = new Venta(new CalculoConIVA());
         String continuar;
 
-        do {
+        do{
             // Mostrar inventario actualizado
-            Inventario.mostrarInventario();
+            mostrarInventario();
 
-            System.out.print("ID Producto a vender: ");
-            String id = Input.scanner.nextLine().toUpperCase();
+            String id = Input.getString("ID Producto a vender: ");
 
             List<Producto> inventario = DataManager.getInventario();
-            boolean productoEncontrado = false;
+            boolean productoNoEncontrado = true;
 
             for (Producto p : inventario) {
-
-                if (p.getId().equals(id) && p.getCantidad() > 0) {
-                    productoEncontrado = true;
-
+                // Verificar si el producto tiene stock disponible y coincide con el ID
+                // ingresado
+                if (p.getId().equals(id.toUpperCase()) && p.getCantidad() > 0) {
+                    productoNoEncontrado = false;
                     int cantidad = Input.getInt("Cantidad: ");
-                    Input.scanner.nextLine(); // Limpiar el buffer
 
                     // Verificar si hay suficiente stock
                     if (p.getCantidad() >= cantidad) {
@@ -70,49 +67,44 @@ public class Vendedor {
                         // Actualizar el stock del producto
                         p.setCantidad(p.getCantidad() - cantidad);
 
-                        System.out.println("Producto agregado a la venta!");
+                        DataManager.agregarVenta(venta);
+                        
                         break;
                     } else {
                         System.out.println("Stock insuficiente!");
-                        break;
                     }
                 }
             }
+            
+            if (productoNoEncontrado) {
+                System.out.println("Producto no encontrado.");
+            }
+            
+            // Preguntar si el vendedor desea agregar otro producto
+            System.out.print("¿Desea agregar otro producto? (s/n): ");
+            continuar = Input.scanner.nextLine();
 
-            if (!productoEncontrado) {
-                System.out.println("Producto no encontrado o agotado.");
+            if (continuar.equalsIgnoreCase("n")) {
+                // Mostrar el total de la venta
+                DataManager.agregarVenta(venta);
+                System.out.println("Total de la venta: $ " + venta.calcularTotal());
+                break;
             }
 
-            // Preguntar si el vendedor desea agregar otro producto
-            System.out.print("¿Agregar otro producto? (s/n): ");
-            continuar = Input.scanner.nextLine();
-        } while (continuar.equalsIgnoreCase("s"));
-
-        // Registrar la venta después de finalizar la compra
-        DataManager.agregarVenta(venta);
-        System.out.println("\nVenta registrada! Total: $" + venta.calcularTotal());
+        }while (continuar.equalsIgnoreCase("s"));
     }
 
     public static void mostrarVentas() {
         List<Venta> ventas = DataManager.getVentas();
-        int contador = 1;
-        double sumatoriaVenta = 0;
 
         if (ventas.isEmpty()) {
-            System.out.println("\nNo hay ventas registradas.");
+            System.out.println("No hay ventas registradas.");
             return;
         }
 
         for (Venta v : ventas) {
-            // System.out.println("===================== VENDEDOR vend1 ====================");
-            System.out.println("\n========================= Venta " + contador++ + " =======================");
-
-            sumatoriaVenta += v.calcularTotal();
             System.out.println(v);
-
         }
-        // System.out.println("===================== VENDEDOR vend1 ====================");
-        System.out.println("============ Total ventas del dia : $" + sumatoriaVenta + " ============");
     }
 
 }

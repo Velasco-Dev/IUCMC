@@ -1,8 +1,9 @@
 package Persona;
 
 import Data.DataManager;
+import Persona.Administrador.Administrador;
+import Utils.Input;
 import java.util.List;
-import java.util.Scanner;
 
 public class InicioSesion {
 
@@ -10,35 +11,44 @@ public class InicioSesion {
     public static Usuario usuarioLogueado;
 
     public static void iniciarSesion() {
-
-        try (Scanner scanner = new Scanner(System.in)) {
-
-            System.out.println("""
-                \n=================== INICIO DE SESIÓN =================
+        System.out.print("""
+                \n==================== INICIO DE SESION ===================
                 Por favor, ingrese sus credenciales.
-                ======================================================""");
-            System.out.print("Usuario: ");
-            String usuario = scanner.nextLine();
-            System.out.print("Contraseña: ");
-            String contrasena = scanner.nextLine();
-            
-            for(Usuario u : usuarios) {
-                if(u.getUsername().equals(usuario) && u.getPassword().equals(contrasena)) {
+                =========================================================
+                """);
+
+        // System.out.print("Usuario: ");
+        String usuarioIngresado = Input.getString("Usuario: ");
+
+        // System.out.print("Contraseña: ");
+        String contrasenaIngresada = Input.getString("Contraseña: ");
+
+        for (Usuario u : usuarios) {
+            if (u.getUsername().equals(usuarioIngresado)) {
+
+                if (u.getPassword().equals(contrasenaIngresada)) {
+                    System.out.print("\nBienvenido " + u.getUsername() + "!");
                     usuarioLogueado = u;
                     menuRol();
                     return;
+                } else {
+                    System.out.println("Contraseña incorrecta!");
+                    return;
                 }
             }
-            System.out.println("Credenciales incorrectas!");
         }
+
+        System.err.println("\nUsuario no encontrado!\n");
     }
 
     private static void menuRol() {
-        switch(usuarioLogueado.getRol()) {
+        switch (usuarioLogueado.getRol()) {
+            case "Administrador" -> Administrador.menuAdministrador();
             case "Microempresario" -> Microempresario.menuMicroempresario();
             case "Vendedor" -> Vendedor.menuVendedor();
+
             default -> System.out.println("Rol no reconocido");
         }
     }
-    
+
 }

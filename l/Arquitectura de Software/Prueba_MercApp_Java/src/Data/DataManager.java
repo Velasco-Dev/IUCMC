@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Persona.Usuario;
+import Persona.Administrador.ActalizarUsuarios;
 import Producto.Producto;
 import Venta.Venta;
 
@@ -29,6 +30,11 @@ public class DataManager {
     // Métodos para agregar elementos
     public static void agregarUsuario(Usuario usuario) {
         usuarios.add(usuario);
+    }
+
+    public static void setUsuarios(List<Usuario> usuarios) {
+
+        ActalizarUsuarios.actualizarUsuario(usuarios.get(0));
     }
 
     public static void agregarProducto(Producto producto) {

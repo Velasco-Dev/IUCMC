@@ -1,33 +1,31 @@
 package Persona;
 
+import Data.DataManager;
+import Inventario.Inventario;
 import Producto.Producto;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import Utils.Input;
 
 public class Microempresario {
 
-    public static List<Producto> inventario = new ArrayList<>();
-    public static Scanner scanner = new Scanner(System.in);
-
     public static void menuMicroempresario() {
         while (true) {
-            System.out.println("""
-                    === MICROEMPRESARIO ===
+            System.out.println("\n================ MICROEMPRESARIO "+InicioSesion.usuarioLogueado.getUsername()+" =================");
+            System.out.print("""
                     1. Agregar producto
                     2. Actualizar stock
                     3. Ver inventario
                     4. Salir
+                    =========================================================
                     """);
             System.out.print("Seleccione opción: ");
 
-            int opcion = scanner.nextInt();
-            scanner.nextLine();
+            int opcion = Input.scanner.nextInt();
+            Input.scanner.nextLine();
 
             switch (opcion) {
                 case 1 -> agregarProducto();
                 case 2 -> actualizarStock();
-                case 3 -> mostrarInventario();
+                case 3 -> Inventario.mostrarInventario();
                 case 4 -> {
                     return;
                 }
@@ -38,41 +36,36 @@ public class Microempresario {
 
     private static void agregarProducto() {
         System.out.print("ID Producto: ");
-        String id = scanner.nextLine();
+        String id = Input.scanner.nextLine();
         System.out.print("Nombre: ");
-        String nombre = scanner.nextLine();
+        String nombre = Input.scanner.nextLine();
         System.out.print("Cantidad inicial: ");
-        int cantidad = scanner.nextInt();
+        int cantidad = Input.scanner.nextInt();
         System.out.print("Precio: ");
-        double precio = scanner.nextDouble();
-        scanner.nextLine();
+        double precio = Input.scanner.nextDouble();
+        Input.scanner.nextLine();
 
-        inventario.add(new Producto(id, nombre, cantidad, precio));
+        // Crear un nuevo producto y agregarlo al inventario de DataManager
+        Producto producto = new Producto(id, nombre, cantidad, precio);
+        DataManager.agregarProducto(producto); // Asegúrate de tener un método para agregar productos en DataManager
+
         System.out.println("Producto agregado!");
     }
 
     private static void actualizarStock() {
-        mostrarInventario();
+        Inventario.mostrarInventario();
         System.out.print("ID Producto a actualizar: ");
-        String id = scanner.nextLine();
+        String id = Input.scanner.nextLine();
 
-        for (Producto p : inventario) {
+        for (Producto p : DataManager.getInventario()) { // Cambiar para obtener productos desde DataManager
             if (p.getId().equals(id)) {
                 System.out.print("Nueva cantidad: ");
-                p.setCantidad(scanner.nextInt());
-                scanner.nextLine();
+                p.setCantidad(Input.scanner.nextInt());
+                Input.scanner.nextLine();
                 System.out.println("Stock actualizado!");
                 return;
             }
         }
         System.out.println("Producto no encontrado!");
     }
-
-    public static void mostrarInventario() {
-        System.out.println("\n=== INVENTARIO ===");
-        for (Producto p : inventario) {
-            System.out.println(p);
-        }
-    }
-
 }
