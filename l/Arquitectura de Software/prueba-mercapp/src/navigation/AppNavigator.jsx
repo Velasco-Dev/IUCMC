@@ -26,10 +26,10 @@ const screenOptions = {
 export default function AppNavigator() {
     return (
         <Stack.Navigator initialRouteName="Login" screenOptions={{...screenOptions, headerMode: 'screen'}}>
-            <Stack.Screen name="Login" component={LoginScreen} options={{ title: 'Inicio de Sesión', headerLeft: null, headerRight: null  }} />
-            <Stack.Screen name="Admin" component={AdminScreen} options={{ title: 'Administrador@' }} />
-            <Stack.Screen name="Micro" component={MicroScreen} options={{ title: 'Microempresari@' }} />
-            <Stack.Screen name="Vendor" component={VendedorScreen} options={{ title: 'Vendedor@' }} />
+            <Stack.Screen name="Login" component={LoginScreen} options={{ title: 'MercApp', headerLeft: null, headerRight: null  }} />
+            <Stack.Screen name="Admin" component={AdminScreen} options={{ title: 'Administrador@', headerLeft: null}} />
+            <Stack.Screen name="Micro" component={MicroScreen} options={{ title: 'Microempresari@', headerLeft: null }} />
+            <Stack.Screen name="Vendor" component={VendedorScreen} options={{ title: 'Vendedor@', headerLeft: null }} />
         </Stack.Navigator>
     );
 }

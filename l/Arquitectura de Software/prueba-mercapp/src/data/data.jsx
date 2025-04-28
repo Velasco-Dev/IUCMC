@@ -1,8 +1,8 @@
 // data.js
 export const initialUsers = [
-    { id: 'u1', role: 'administrador', name: 'Admin Central', email: 'admin@mercapp.com' },
-    { id: 'u2', role: 'microempresario', name: 'Juan Pérez', email: 'juan@placita.com' },
-    { id: 'u3', role: 'vendedor', name: 'Ana Gómez', email: 'ana@vendedor.com' }
+    { id: 'u1', role: 'administrador', name: 'Admin Central', email: 'admin@mercapp.com', user: 'admin', password: 'admin' },
+    { id: 'u2', role: 'microempresario', name: 'Juan Pérez', email: 'juan@placita.com', user: 'micro', password: 'micro' },
+    { id: 'u3', role: 'vendedor', name: 'Ana Gómez', email: 'ana@vendedor.com', user: 'vendedor', password: 'vendedor' },
   ];
   
   export const initialProducts = [
