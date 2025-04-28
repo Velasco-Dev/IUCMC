@@ -13,8 +13,8 @@ const screenOptions = {
     headerLeft: () => <BackButton />,
     headerRight: () => <LogoutButton />,
     headerStyle: {
-        elevation: 0, // Android
-        shadowOpacity: 0, // iOS
+        elevation: 10, // Android
+        shadowOpacity: 10, // iOS
         backgroundColor: '#fff'
     },
     headerTitleStyle: {
