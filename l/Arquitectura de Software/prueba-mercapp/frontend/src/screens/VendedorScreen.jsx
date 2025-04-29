@@ -36,6 +36,24 @@ export default function VendorScreen() {
         }
     };
 
+    const subtractToCart = (product, quantity = 1) => {
+        const existingItem = cart.find(item => item.productId === product.id);
+
+        if (existingItem) {
+            // Si la cantidad es 0 o menor, removemos el item del carrito
+            if (existingItem.qty <= quantity) {
+                setCart(cart.filter(item => item.productId !== product.id));
+            } else {
+                // Si no, restamos la cantidad
+                setCart(cart.map(item =>
+                    item.productId === product.id
+                        ? { ...item, qty: item.qty - quantity }
+                        : item
+                ));
+            }
+        }
+    };
+
     const registerSale = () => {
         if (cart.length === 0) return;
 
@@ -81,10 +99,10 @@ export default function VendorScreen() {
                         <Text style={styles.saleDate}>{item.date}</Text>
                         {item.items.map(product => (
                             <Text key={product.productId}>
-                                {product.productName} x{product.qty} - ${product.price * product.qty}
+                                {product.productName} x{product.qty} - ${product.price * product.qty * 1.19}
                             </Text>
                         ))}
-                        <Text style={styles.saleTotal}>Total: ${item.total}</Text>
+                        <Text style={styles.saleTotal}>Total: ${item.total * 1.19}</Text>
                     </View>
                 )}
             />
@@ -103,8 +121,13 @@ export default function VendorScreen() {
                             keyExtractor={p => p.id}
                             renderItem={({ item }) => (
                                 <View style={styles.productRow}>
-                                    <Text>{item.name} (Stock: {item.quantity})</Text>
+                                    <Text>{item.name} (Stock: {item.quantity} - Precio: {item.price})</Text>
                                     <View style={styles.productActions}>
+                                        <Button
+                                            title="-"
+                                            onPress={() => subtractToCart(item)}
+                                            disabled={!cart.find(cartItem => cartItem.productId === item.id)?.qty}
+                                        />
                                         <Button
                                             title="+"
                                             onPress={() => addToCart(item)}
@@ -120,11 +143,11 @@ export default function VendorScreen() {
                                 <Text style={styles.cartTitle}>Carrito:</Text>
                                 {cart.map(item => (
                                     <Text key={item.productId}>
-                                        {item.productName} x{item.qty} - ${item.price * item.qty}
+                                        {item.productName} x{item.qty} - ${item.price * item.qty} + IVA 19% ({item.price * 1.19}) = ${item.price * item.qty * 1.19}
                                     </Text>
                                 ))}
                                 <Text style={styles.cartTotal}>
-                                    Total: ${cart.reduce((sum, item) => sum + (item.price * item.qty), 0)}
+                                    Total: ${cart.reduce((sum, item) => sum + (item.price * item.qty * 1.19), 0)}
                                 </Text>
                             </View>
                         )}
@@ -217,6 +240,7 @@ const styles = StyleSheet.create({
     productActions: {
         flexDirection: 'row',
         alignItems: 'center',
+        margin: 5,
     },
     cartSection: {
         marginTop: 20,
@@ -246,14 +270,14 @@ const styles = StyleSheet.create({
         backgroundColor: '#f0f0f0',
         borderRadius: 5,
         marginBottom: 10,
-      },
-      totalLabel: {
+    },
+    totalLabel: {
         fontSize: 16,
         fontWeight: 'bold',
-      },
-      totalAmount: {
+    },
+    totalAmount: {
         fontSize: 18,
         fontWeight: 'bold',
         color: '#2ecc71',
-      },
+    },
 });

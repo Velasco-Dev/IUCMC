@@ -140,8 +140,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderRadius: 10,
         borderColor: '#ddd',
-        borderWidth: 1,
+        borderWidth: 2,
         padding: 20,
+        boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
     },
     title: {
         fontSize: 24,

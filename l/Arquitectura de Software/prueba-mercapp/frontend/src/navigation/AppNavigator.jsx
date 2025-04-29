@@ -15,7 +15,7 @@ const screenOptions = {
     headerStyle: {
         elevation: 10, // Android
         shadowOpacity: 10, // iOS
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
     },
     headerTitleStyle: {
         fontWeight: 'bold',
