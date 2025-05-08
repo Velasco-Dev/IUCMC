@@ -1,7 +1,7 @@
 package puntoUno;
 
-import Utils.Input;
 import java.util.Random;
+import utils.Input;
 
 public class puntoUno {
 

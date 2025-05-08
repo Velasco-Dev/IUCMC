@@ -1,9 +1,9 @@
-import Utils.Input;
 import interfaces.Command;
 import java.util.HashMap;
 import java.util.Map;
 import puntoDos.puntoDos;
 import puntoUno.puntoUno;
+import utils.Input;
 
 public class Parcial {
     // deifición del mapeador para el menú
