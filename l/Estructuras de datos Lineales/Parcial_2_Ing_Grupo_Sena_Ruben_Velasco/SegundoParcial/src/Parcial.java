@@ -19,18 +19,16 @@ public class Parcial {
         menuOptions.put(2, () -> puntoDos.primos());
         menuOptions.put(3, () -> puntoTres.primos());
     }
-
-    // deifinición del método principal
-    public static void Parciall() {
-
+    public static void main(String[] args) throws Exception {
         while (!entradaValida) {
             mostrarMenu();
             int opcion = Input.getInt("Opcion: ");
-            entradaValida = false;
-
+            
             if (opcion <= 3) {
-                entradaValida = true;
+                entradaValida = false;
                 ejecutarOpcion(opcion);
+            }else{
+                System.out.println("\nOpcion no definida\n");
             }
         }
     }
@@ -60,7 +58,6 @@ public class Parcial {
                 1. Punto 1
                 2. Punto 2
                 3. Punto 3
-                  (Numeros mayores a 3 muestran el menu nuevamente)
                 =====================================================
                 """);
     }
@@ -69,12 +66,10 @@ public class Parcial {
     private static void ejecutarOpcion(int opcion) {
         Command command = menuOptions.getOrDefault(opcion,
                 () -> {
-                    System.out.println("Opción no válida.");
                     // en caso no ser una opción valida, muestra de nuevo el menú de opciones
                     entradaValida = false;
                 });
         // ejecuta la opción
         command.execute();
     }
-
 }

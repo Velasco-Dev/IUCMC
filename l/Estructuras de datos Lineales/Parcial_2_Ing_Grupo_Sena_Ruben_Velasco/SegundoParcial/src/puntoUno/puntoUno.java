@@ -10,7 +10,7 @@ public class puntoUno {
         Random random = new Random();
 
         //Definición del tamaño de la matríz
-        int tamano = Input.getInt("Ingrese el número de filas y columnas para la matriz: ");
+        int tamano = Input.getInt("\nIngrese el número de filas y columnas para la matriz: ");
         //Definición de la matriz de tamaño nxm (cuadrada)
         int [][] matriz = new int [tamano][tamano];
 

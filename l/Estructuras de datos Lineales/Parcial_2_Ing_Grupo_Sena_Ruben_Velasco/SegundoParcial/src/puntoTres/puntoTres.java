@@ -2,8 +2,8 @@ package puntoTres;
 
 public class puntoTres {
 
-    public static void primos(){
-        //Arreglo de numeros primos
+    public static void primos() {
+        // Arreglo de numeros primos
         int count = 0;
         int numero = 2;
         int[] numerosPrimos = new int[25];
@@ -22,13 +22,12 @@ public class puntoTres {
             }
             numero++;
         }
-        
-        System.out.print("Los primeros 25 numeros primos son: ");
 
-        //Se imprime el arreglo de números
+        System.out.println("\nLos primeros 25 numeros primos son: ");
+
+        // Se imprime el arreglo de números
         for (int i = 0; i < numerosPrimos.length; i++) {
-            System.out.print(i == numerosPrimos.length - 1 ? numerosPrimos[i] + ".\n" : numerosPrimos[i] + ", ");
+            System.out.print(i == numerosPrimos.length - 1 ? numerosPrimos[i] + ".\n\n" : numerosPrimos[i] + ", ");
         }
     }
-    
 }

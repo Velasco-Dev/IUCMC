@@ -23,11 +23,11 @@ public class puntoDos {
             numero++;
         }
         
-        System.out.print("Los primeros 25 numeros primos son: ");
+        System.out.println("\nLos primeros 25 numeros primos son: ");
 
         //Se imprime el arreglo de números
         for (int i = 0; i < numerosPrimos.length; i++) {
-            System.out.print(i == numerosPrimos.length - 1 ? numerosPrimos[i] + ".\n" : numerosPrimos[i] + ", ");
+            System.out.print(i == numerosPrimos.length - 1 ? numerosPrimos[i] + ".\n\n" : numerosPrimos[i] + ", ");
         }
     }
     
