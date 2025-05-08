@@ -2,6 +2,7 @@ import interfaces.Command;
 import java.util.HashMap;
 import java.util.Map;
 import puntoDos.puntoDos;
+import puntoTres.puntoTres;
 import puntoUno.puntoUno;
 import utils.Input;
 
@@ -16,7 +17,7 @@ public class Parcial {
         menuOptions.put(0, () -> Salir());
         menuOptions.put(1, () -> puntoUno.matrices());
         menuOptions.put(2, () -> puntoDos.primos());
-        // menuOptions.put(3, () -> tercerPunto.factorial());
+        menuOptions.put(3, () -> puntoTres.primos());
     }
 
     // deifinición del método principal
