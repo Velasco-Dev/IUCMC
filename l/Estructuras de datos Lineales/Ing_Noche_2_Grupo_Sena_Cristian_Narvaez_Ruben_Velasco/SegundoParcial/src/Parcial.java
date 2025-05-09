@@ -3,6 +3,7 @@ import java.util.HashMap;
 import java.util.Map;
 import puntoDos.puntoDos;
 import puntoTres.puntoTres;
+import puntoCuatro.puntoCuatro;
 import puntoUno.puntoUno;
 import utils.Input;
 
@@ -15,16 +16,17 @@ public class Parcial {
     // agregación de opciones en el menú
     static {
         menuOptions.put(0, () -> Salir());
-        menuOptions.put(1, () -> puntoUno.matrices());
-        menuOptions.put(2, () -> puntoDos.primos());
-        menuOptions.put(3, () -> puntoTres.primos());
+        menuOptions.put(1, () -> puntoUno.uno());
+        menuOptions.put(2, () -> puntoDos.dos());
+        menuOptions.put(3, () -> puntoTres.tres());
+        menuOptions.put(4, () -> puntoCuatro.cuatro());
     }
     public static void main(String[] args) throws Exception {
         while (!entradaValida) {
             mostrarMenu();
             int opcion = Input.getInt("Opcion: ");
             
-            if (opcion <= 3) {
+            if (opcion <= 4) {
                 entradaValida = false;
                 ejecutarOpcion(opcion);
             }else{
@@ -51,6 +53,7 @@ public class Parcial {
                 ================ Parcial Segundo Corte ==============
                 =============== Ingenieria Informatica ==============
                 ====================== Grupo SENA ===================
+                ================= Cristian S. Narvaez ===============
                 ================= Ruben D. Velasco B. ===============
                 =====================================================
                 Menú de Opciones:
@@ -58,6 +61,7 @@ public class Parcial {
                 1. Punto 1
                 2. Punto 2
                 3. Punto 3
+                4. Punto 4
                 =====================================================
                 """);
     }
