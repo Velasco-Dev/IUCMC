@@ -49,7 +49,7 @@ public class MetodoCola {
         Nodo aux = frente;
 
         while (aux != null) {
-            System.out.println("\t|"+aux.getValor()+"\t|");
+            System.out.println("\t | "+aux.getValor()+" | \t");
             aux = aux.getSiguiente();
         }
     }
