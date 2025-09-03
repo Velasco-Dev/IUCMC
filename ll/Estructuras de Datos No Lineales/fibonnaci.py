@@ -19,7 +19,7 @@ def factorial(c):
     print(f"Su factorial acortado es: ",acortado)
   
 
-#Serie de Fibbo
+#Serie de Fibbonacci
 a=b=1
 for i in range (1,10,1):
     c = a + b
