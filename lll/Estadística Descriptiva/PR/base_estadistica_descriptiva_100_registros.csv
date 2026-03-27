@@ -1,0 +1,101 @@
+﻿codigo,sexo,semestre,edad,horas_estudio,promedio,transporte,beca,satisfaccion_r
+1,Mujer,1,17,13.9,4.1,A pie,No,Media
+2,Hombre,6,21,12.8,3.6,Bus,Si,Media
+3,Hombre,3,19,5.1,2.9,Bus,No,Baja
+4,Hombre,5,19,8.5,2.9,Bus,Si,Baja
+5,Mujer,9,25,14.4,3.8,Bus,No,Media
+6,Mujer,3,19,7.2,3.0,Bus,No,Baja
+7,Mujer,4,18,10.6,3.6,Bus,No,Media
+8,Hombre,8,23,12.8,3.4,Bus,Si,Baja
+9,Hombre,2,17,6.3,3.2,Bus,No,Baja
+10,Hombre,1,18,8.2,3.7,Moto,Si,Media
+11,Mujer,3,20,2.5,2.6,Bus,No,Baja
+12,Hombre,2,17,6.0,3.1,Bus,No,Media
+13,Hombre,10,25,10.8,3.7,Moto,Si,Media
+14,Mujer,8,23,7.6,3.0,A pie,Si,Media
+15,Mujer,6,22,14.3,3.9,Bus,No,Media
+16,Mujer,9,25,7.4,3.1,Bicicleta,No,Baja
+17,Mujer,8,22,9.7,3.4,A pie,Si,Baja
+18,Hombre,2,17,9.0,3.0,Bus,No,Baja
+19,Mujer,9,22,14.9,3.9,Bicicleta,No,Media
+20,Mujer,5,19,6.0,3.2,Carro,Si,Alta
+21,Hombre,8,22,13.8,4.3,Bus,No,Alta
+22,Mujer,9,24,11.2,3.8,Bus,No,Alta
+23,Mujer,3,19,6.5,3.8,Bicicleta,No,Baja
+24,Mujer,1,18,9.6,3.1,A pie,Si,Media
+25,Mujer,2,18,9.2,3.6,Bus,No,Alta
+26,Hombre,4,21,7.8,3.2,Bus,No,Baja
+27,Mujer,8,22,11.0,4.2,Bus,Si,Media
+28,Hombre,9,26,10.1,3.1,Moto,Si,Media
+29,Hombre,1,18,8.6,2.9,A pie,No,Baja
+30,Mujer,5,19,11.5,3.3,Bus,No,Alta
+31,Hombre,4,18,13.5,3.0,Moto,No,Baja
+32,Mujer,2,19,5.5,2.7,A pie,No,Media
+33,Mujer,1,17,13.9,3.5,Bus,No,Media
+34,Hombre,3,20,4.0,2.8,Bus,No,Baja
+35,Hombre,10,24,11.1,3.6,A pie,No,Media
+36,Hombre,3,19,10.6,4.1,Carro,No,Alta
+37,Mujer,5,19,10.5,3.8,Moto,No,Alta
+38,Mujer,7,20,8.8,3.1,Moto,No,Baja
+39,Hombre,4,19,8.9,3.0,Bus,No,Baja
+40,Mujer,10,25,10.2,3.5,Moto,No,Alta
+41,Mujer,10,24,10.0,2.9,Moto,No,Media
+42,Hombre,3,17,11.3,4.2,Bus,Si,Alta
+43,Mujer,5,21,10.7,3.9,Bus,Si,Media
+44,Hombre,3,19,7.2,2.9,Bus,No,Baja
+45,Mujer,3,18,11.4,2.9,Bus,Si,Media
+46,Hombre,1,18,9.1,3.7,Bus,No,Baja
+47,Mujer,6,21,12.2,3.6,Bus,Si,Media
+48,Hombre,5,19,11.4,4.0,Bus,Si,Alta
+49,Hombre,1,18,6.2,2.4,Bus,No,Baja
+50,Mujer,3,20,7.6,2.9,Carro,No,Media
+51,Hombre,9,24,13.1,3.7,Moto,No,Media
+52,Hombre,2,19,10.3,3.4,A pie,No,Media
+53,Hombre,2,17,8.6,3.1,Bicicleta,No,Media
+54,Hombre,5,19,10.1,3.6,Moto,No,Media
+55,Hombre,10,24,14.8,3.5,Bus,No,Media
+56,Hombre,3,20,7.5,3.1,Moto,No,Media
+57,Mujer,7,22,11.9,3.6,Moto,Si,Media
+58,Mujer,8,27,10.3,3.6,A pie,No,Media
+59,Mujer,2,19,8.1,3.4,Moto,Si,Baja
+60,Mujer,7,23,13.3,3.3,Bus,No,Media
+61,Mujer,4,21,11.5,3.0,Bus,No,Alta
+62,Mujer,6,22,12.2,4.1,Bus,No,Alta
+63,Hombre,6,21,13.5,3.9,A pie,No,Alta
+64,Mujer,5,21,9.8,3.1,Moto,No,Media
+65,Mujer,1,17,10.1,3.9,Bus,No,Media
+66,Hombre,8,22,10.0,3.4,Carro,No,Media
+67,Mujer,3,18,9.9,3.8,Moto,No,Baja
+68,Hombre,2,18,8.4,3.2,Bus,Si,Media
+69,Mujer,1,20,8.6,3.9,Bus,No,Baja
+70,Hombre,6,19,11.6,4.2,Bus,Si,Alta
+71,Hombre,7,23,8.3,3.1,Bus,Si,Media
+72,Mujer,1,16,13.8,4.1,Bus,No,Alta
+73,Mujer,5,20,7.1,3.3,Bus,No,Baja
+74,Hombre,2,20,5.5,3.4,Bus,No,Media
+75,Hombre,6,21,13.1,3.4,Bus,No,Baja
+76,Hombre,2,17,10.8,3.7,Carro,No,Alta
+77,Hombre,7,21,12.1,4.0,Bus,No,Media
+78,Mujer,4,20,11.0,2.9,Moto,No,Media
+79,Mujer,10,23,11.5,3.1,Bus,No,Media
+80,Mujer,2,18,6.4,2.3,Carro,No,Baja
+81,Hombre,3,19,9.2,3.2,Bus,No,Baja
+82,Hombre,1,17,6.6,3.3,Bus,No,Media
+83,Mujer,10,26,14.0,4.3,Carro,No,Alta
+84,Mujer,9,24,10.8,3.5,Bicicleta,No,Alta
+85,Mujer,3,16,6.9,3.6,Bicicleta,No,Baja
+86,Mujer,6,21,9.3,2.8,Bus,Si,Baja
+87,Hombre,8,22,11.9,3.0,Bus,No,Media
+88,Hombre,5,21,8.3,3.2,A pie,No,Baja
+89,Hombre,5,19,7.6,3.3,Carro,Si,Media
+90,Mujer,3,19,9.7,3.3,Moto,Si,Media
+91,Mujer,1,18,9.0,2.5,Moto,Si,Baja
+92,Hombre,9,24,9.8,3.3,Bus,No,Baja
+93,Hombre,9,22,9.9,2.9,Bicicleta,No,Baja
+94,Hombre,6,21,10.7,3.7,Bus,No,Alta
+95,Hombre,3,18,5.3,3.0,Bus,Si,Baja
+96,Hombre,3,18,5.4,2.6,Bus,No,Baja
+97,Hombre,7,24,8.6,3.1,Moto,No,Baja
+98,Mujer,9,24,10.6,3.0,Bus,No,Alta
+99,Mujer,9,22,12.0,3.5,Bus,No,Baja
+100,Mujer,8,24,14.6,4.2,A pie,No,Alta
