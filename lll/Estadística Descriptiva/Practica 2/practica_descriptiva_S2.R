@@ -15,7 +15,7 @@ cat("\014")
 getwd()
 
 # Si hace falta, cambiar la carpeta:
-# setwd("C:/Users/TuUsuario/Documents/PracticaR")
+setwd("D:/GitHub/IUCMC/lll/Estadística Descriptiva/Practica 2")
 
 getwd()
 
@@ -30,9 +30,10 @@ base <- read.csv("base_practica_descriptiva_1000.csv",
 
 
 #install.packages("readxl") # o desde la consola
-#library(readxl)
-#base <- read_excel("base_practica_descriptiva_1000.xlsx")
+library(readxl)
+base <- read_excel("base_practica_descriptiva_1000.xlsx")
 
+dim(base)
 
 ##############################
 # 3. GUARDAR Y CARGAR DATOS EN FORMATO .RData
@@ -71,9 +72,13 @@ ls()
 load("objetos_practica.RData")
 ls()
 
+names(base)
+sapply(base, class)
+
 ##############################
 # 4. CONVERTIR VARIABLES
 ##############################
+#variable categórica
 base$sexo <- factor(base$sexo)
 base$jornada <- factor(base$jornada)
 base$programa <- factor(base$programa)
@@ -81,6 +86,7 @@ base$beca <- factor(base$beca)
 base$trabaja <- factor(base$trabaja)
 base$transporte <- factor(base$transporte)
 base$modalidad_estudio <- factor(base$modalidad_estudio)
+#Variable ordinal
 base$satisfaccion_r <- factor(base$satisfaccion_r,
                               levels = c("Baja", "Media", "Alta"),
                               ordered = TRUE)
@@ -128,21 +134,22 @@ y <- c(TRUE, FALSE, TRUE)
 # Filtrar datos:
 # Ejemplo: estudiantes con promedio alto o muchas horas de estudio
 
-base[base$promedio > 4 | base$horas_estudio > 15, ]
+B3 = base[base$promedio > 4 | base$horas_estudio > 15, ]
+B33 <- base[base$promedio > 4 | base$horas_estudio > 15, ]
 
 # Ejemplo: estudiantes que cumplen ambas condiciones
 
-base[base$promedio > 4 & base$horas_estudio > 15, ]
+B4 = base[base$promedio > 4 & base$horas_estudio > 15, ]
+
+sum(is.na(base))/dim(base)[1]
 
 # Ejemplo: eliminar valores faltantes
 
-base[!is.na(base$promedio), ]
+BNA = base[!is.na(base$promedio), ]
 
+sum(is.na(base$edad))
 
 ############################################################
-
-
-
 
 
 ##############################
@@ -151,7 +158,7 @@ base[!is.na(base$promedio), ]
 
 colSums(is.na(base))
 
-# Porcentaje de faltantes por variable
+# Porcentaje de faltantes por variable (Mean = Promedio por columna)
 100 * colMeans(is.na(base))
 
 # Base sin NA en promedio para algunos análisis puntuales
@@ -159,6 +166,8 @@ colSums(is.na(base))
 base_prom <- base[!is.na(base$promedio), ]
 
 
+mean(na.omit(base$ingreso_hogar_millones))
+#na.
 ##############################
 # 6. MEDIDAS DESCRIPTIVAS AMPLIADAS
 ##############################
@@ -178,11 +187,13 @@ sd(prom, na.rm = TRUE) / mean(prom, na.rm = TRUE) * 100
 # Cuartiles
 quantile(prom, probs = c(0.25, 0.5, 0.75), na.rm = TRUE)
 
-# Deciles
+# Deciles (Partir en 10 partes)
 quantile(prom, probs = seq(0.1, 0.9, by = 0.1), na.rm = TRUE)
+# El 70% de los estudiantes tiene un promedio por debajo de 3,93
 
 # Percentiles seleccionados
 quantile(prom, probs = c(0.05, 0.95), na.rm = TRUE)
+#el 5% de los estudiantes tiene un promedio por encima de 4,36
 
 ##############################
 # 7. RESUMEN DE VARIAS NUMERICAS
@@ -190,8 +201,11 @@ quantile(prom, probs = c(0.05, 0.95), na.rm = TRUE)
 numericas <- sapply(base, is.numeric)
 base_num <- base[, numericas]
 
+names(base_num)
+
 summary(base_num)
 
+#Aplicando función a base_num quitando los NA
 sapply(base_num, mean, na.rm = TRUE)
 sapply(base_num, median, na.rm = TRUE)
 sapply(base_num, sd, na.rm = TRUE)
@@ -217,19 +231,28 @@ hist(base$asistencia,
      main = "Histograma de asistencia",
      xlab = "Porcentaje de asistencia",
      ylab = "Frecuencia")
+# Histograma mas segmentado (Limite en el eje x)
+hist(base$asistencia,
+     main = "Histograma de asistencia",
+     xlab = "Porcentaje de asistencia",
+     ylab = "Frecuencia", xlim = c(0,100))
 
 # Poligono de frecuencias simple (objeto)
 h <- hist(base$horas_estudio, plot = FALSE)
 
-#Contenido de "h"
+class(h)
+
+#Contenido de "h": h$
 h$breaks
 
 #?hist Ayuda
 
-#plot(h$mids, h$counts, type = "b",
-#     main = "Poligono de frecuencias: horas de estudio",
-#     xlab = "Horas de estudio",
-#     ylab = "Frecuencia")
+plot(h$mids, h$counts, type = "b",
+     main = "Poligono de frecuencias: horas de estudio",
+     xlab = "Horas de estudio",
+     ylab = "Frecuencia")
+
+plot(h)
 
 
 # Ojiva simple
@@ -237,6 +260,7 @@ plot(cumsum(h$counts), type = "o",
      main = "Frecuencia acumulada de horas de estudio",
      xlab = "Clase",
      ylab = "Frecuencia acumulada")
+#600 personas tienen menos de 10 horas de estudio.
 
 # Boxplot de varias variables
 boxplot(base$horas_estudio,

@@ -33,7 +33,7 @@ cat("\014")
 # Ejemplo en Windows:
 # setwd("C:/Users/TuUsuario/Documents/PracticaR")
 
-setwd("D:/GitHub/IUCMC/lll/Estadística Descriptiva/PR")
+setwd("D:/GitHub/IUCMC/lll/Estadística Descriptiva/Practica 1")
 
 # Verificamos nuevamente la carpeta actual
 getwd()
@@ -467,11 +467,13 @@ plot(base$horas_estudio, base$promedio,
      pch = 19)
 
 # Agregamos una linea de tendencia sencilla
-abline(lm(promedio ~ horas_estudio, data = base), lwd = 2)
+abline(lm(promedio ~ horas_estudio, data = base), lwd = 2,col="red")
 
 ##############################
 # 14. TABLAS CRUZADAS
 ##############################
+
+table(base$sexo, base$beca)
 
 # Tabla cruzada entre sexo y beca
 tabla_cruzada1 <- table(base$sexo, base$beca)
@@ -486,6 +488,9 @@ prop.table(tabla_cruzada1, margin = 2)
 # Tabla cruzada entre transporte y satisfaccion
 tabla_cruzada2 <- table(base$transporte, base$satisfaccion_r)
 tabla_cruzada2
+
+prop.table(tabla_cruzada2, margin = 1)
+prop.table(tabla_cruzada2, margin = 2)
 
 ##############################
 # 15. IDENTIFICAR VARIABLES NUMERICAS Y CATEGORICAS
@@ -509,6 +514,12 @@ categoricas
 base_numerica <- base[, numericas]
 base_numerica
 
+sum(categoricas)
+#Columna 2
+base[,2]
+#Fila 5
+base[5,]
+
 ##############################
 # 16. RESUMEN DESCRIPTIVO DE TODAS LAS NUMERICAS
 ##############################
@@ -517,6 +528,7 @@ summary(base_numerica)
 
 # Media de todas las variables numéricas
 sapply(base_numerica, mean)
+sapply(base_numerica[,-1], mean)
 
 # Mediana
 sapply(base_numerica, median)
