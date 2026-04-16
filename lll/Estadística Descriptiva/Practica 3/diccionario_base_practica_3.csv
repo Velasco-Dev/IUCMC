@@ -1,0 +1,22 @@
+﻿variable,descripcion,tipo
+codigo,Identificador único del estudiante,Texto
+sexo,Sexo reportado por el estudiante,Categórica nominal
+edad,Edad en años,Cuantitativa discreta
+semestre,Semestre académico actual (1 a 10),Cuantitativa discreta
+programa,Programa académico del estudiante,Categórica nominal
+jornada,Jornada de estudio,Categórica nominal
+trabaja,Indica si el estudiante trabaja actualmente,Categórica nominal
+beca,Indica si el estudiante cuenta con beca,Categórica nominal
+transporte,Medio de transporte principal para llegar al campus,Categórica nominal
+modalidad_estudio,Modalidad principal de estudio,Categórica nominal
+horas_estudio,Horas de estudio por semana fuera de clase,Cuantitativa continua
+horas_sueno,Horas promedio de sueño por día,Cuantitativa continua
+asistencia,Porcentaje de asistencia a clases,Cuantitativa continua
+distancia_campus_km,Distancia aproximada entre la vivienda y el campus (km),Cuantitativa continua
+tiempo_desplazamiento_min,Tiempo promedio de desplazamiento al campus (minutos),Cuantitativa continua
+uso_ia_horas_semana,Horas semanales de uso de herramientas de IA para apoyo académico,Cuantitativa continua
+creditos_inscritos,Número de créditos inscritos en el semestre,Cuantitativa discreta
+ingreso_hogar_millones,"Ingreso mensual estimado del hogar, en millones de pesos",Cuantitativa continua
+promedio,Promedio académico acumulado del estudiante (escala 0 a 5),Cuantitativa continua
+nivel_estres,Nivel de estrés académico percibido,Categórica ordinal
+satisfaccion_programa,Nivel de satisfacción general con el programa,Categórica ordinal
