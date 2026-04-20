@@ -36,7 +36,7 @@ getwd()
 # Si hace falta, cambia la carpeta de trabajo manualmente.
 # IMPORTANTE: ajusta la ruta a una carpeta real de tu computador.
 # Ejemplo:
-setwd("D:/GitHub/IUCMC/lll/Estadística Descriptiva/Practica 3")
+setwd("H:/Ingenieria Informatica/IUCMC/lll/Estadística Descriptiva/Practica 3")
 
 # Verificamos nuevamente la carpeta actual
 getwd()
@@ -159,7 +159,7 @@ gBecaXY <- ggplot(data = base, aes(x = beca, y=trabaja)) +
 
 # Si el script se ejecuta completo, conviene usar print()
 # para forzar la visualización del gráfico.
-print(gBecaXY)
+print(gBecaX)
 
 ##############################
 # 7. PRIMER GRÁFICO EN ggplot:
