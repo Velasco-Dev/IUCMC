@@ -25,7 +25,7 @@ library(readxl)
 library(ggplot2)
 library(dplyr)
 
-setwd("TU_RUTA_AQUI")
+setwd("C:/Users/Tuf/Documents/IUCMC/lll/Estadística Descriptiva/Preparación Parcial")
 
 base <- read_excel("base_hospitalaria_exam.xlsx")
 
@@ -37,7 +37,7 @@ str(base)
 # =========================================================
 # EJEMPLO:
 subgrupo <- base %>%
-  filter(Diagnostico_Principal == "Oncologia" | Reingreso_30_dias == "Si")
+  filter(Diagnostico_Principal == "Oncologia" | reingreso_30dias == "Si")
 
 dim(subgrupo)
 

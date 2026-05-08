@@ -22,7 +22,7 @@ cat("\014")
 getwd()
 
 # Directorio de trabajo:
-setwd("D:/GitHub/IUCMC/lll/Estadística Descriptiva/Practica 3")
+setwd("C:/Users/Tuf/Documents/IUCMC/lll/Estadística Descriptiva/Practica 3")
 
 # Leemos la base de datos principal.
 library(readxl)
